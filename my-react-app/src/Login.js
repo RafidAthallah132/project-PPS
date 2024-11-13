@@ -14,16 +14,12 @@ const Login = () => {
             const response = await axios.post('http://localhost:5000/login', { email, password });
             const { user } = response.data;
 
-            console.log(response.data)
             // Redirect based on the user's role
             if (user.role === 1) {
                 navigate('/admin-dashboard');
-            } else {
+            } else  {
                 navigate('/user-dashboard');
             }
-            // } else {
-            //     navigate('/home'); // Default or fallback route
-            // }
 
             setError('');
         } catch (error) {
